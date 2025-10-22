@@ -62,7 +62,30 @@ export default function App() {
           <h1 className="text-2xl font-semibold tracking-wide drop-shadow-lg">
             🌅 Polyp Segmentation Portal
           </h1>
-       
+        <nav
+  className="flex flex-row flex-wrap justify-center items-center"
+  style={{ gap: "16px", padding: "10px 0" }} // ✅ guaranteed spacing even if Tailwind gap fails
+>
+  {["home", "upload", "demo", "about"].map((p) => (
+    <button
+      key={p}
+      onClick={() => setPage(p)}
+      className={`px-5 py-2 rounded-full font-semibold text-white transition-all duration-300 shadow-md border-none
+        ${
+          page === p
+            ? "bg-orange-600 scale-105"
+            : "bg-orange-500 hover:bg-orange-600 hover:shadow-lg hover:scale-105"
+        }`}
+      style={{
+        backgroundColor: page === p ? "#EA580C" : "#F97316", // Force orange colors
+        margin: "6px", // ✅ fallback spacing between buttons
+      }}
+    >
+      {p.charAt(0).toUpperCase() + p.slice(1)}
+    </button>
+  ))}
+</nav>
+
 
 
         </div>
