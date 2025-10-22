@@ -55,166 +55,242 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900">
-      <header className="bg-white shadow">
+    <div className="min-h-screen bg-gradient-to-br from-rose-100 via-orange-100 to-yellow-50 text-gray-800 font-[Poppins]">
+      {/* ===================== 🌅 NAVBAR ===================== */}
+      <header className="bg-gradient-to-r from-orange-400 to-pink-500 text-white shadow-lg sticky top-0 z-50">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <h1 className="text-xl font-semibold">
-            Polyp Segmentation in Colonoscopy
+          <h1 className="text-2xl font-semibold tracking-wide drop-shadow-lg">
+            🌅 Polyp Segmentation Portal
           </h1>
-          <nav className="space-x-4">
-            <button onClick={() => setPage("home")} className="hover:underline">
-              Home
-            </button>
-            <button onClick={() => setPage("upload")} className="hover:underline">
-              Upload
-            </button>
-            <button onClick={() => setPage("demo")} className="hover:underline">
-              Demo
-            </button>
-            <button onClick={() => setPage("about")} className="hover:underline">
-              About
-            </button>
-          </nav>
+       
+
+
         </div>
       </header>
 
+      {/* ===================== 🌄 MAIN ===================== */}
       <main className="container mx-auto px-6 py-12">
-        {/* ===================== 🏠 HOME PAGE ===================== */}
+        {/* ===================== HOME PAGE ===================== */}
         {page === "home" && (
-          <section className="text-center">
-            <h2 className="text-3xl font-bold mb-4">
+          <section className="text-center py-10">
+            <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-pink-600 mb-4">
               Automated Polyp Segmentation
             </h2>
             <p className="max-w-2xl mx-auto text-gray-700 mb-6">
-              Upload colonoscopy images and automatically segment polyps using a
-              deep learning model.
+              Upload colonoscopy images and automatically detect and segment
+              polyps using advanced AI-based segmentation models.
             </p>
             <button
               onClick={() => setPage("upload")}
-              className="px-6 py-3 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700"
+              className="px-6 py-3 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-full shadow-md hover:from-orange-600 hover:to-pink-600 transition transform hover:scale-105"
             >
-              Try Upload
+              🚀 Try Upload
             </button>
           </section>
         )}
 
-        {/* ===================== 🖼️ UPLOAD PAGE ===================== */}
-        {page === "upload" && (
-          <section className="bg-white p-8 rounded-2xl shadow-md max-w-2xl mx-auto">
-            <h2 className="text-2xl font-semibold mb-4">
-              Upload Colonoscopy Image
-            </h2>
+        {/* ===================== UPLOAD PAGE ===================== */}
+   {page === "upload" && (
+  <section className="bg-white/70 backdrop-blur-sm p-4 sm:p-5 md:p-6 rounded-2xl shadow-lg border border-orange-200 max-w-md sm:max-w-lg mx-auto mt-8">
+    <h2 className="text-2xl font-semibold text-orange-600 mb-3 text-center">
+      Upload Colonoscopy Image
+    </h2>
 
-            <div className="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:border-indigo-400 transition">
-              <input
-                type="file"
-                id="fileInput"
-                accept="image/*"
-                onChange={handleUpload}
-                className="hidden"
-              />
-              <label
-                htmlFor="fileInput"
-                className="cursor-pointer flex flex-col items-center justify-center text-gray-600"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-12 w-12 mb-2 text-indigo-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M7 16a4 4 0 01.88-2.51L12 7l4.12 6.49A4 4 0 0117 16m-5 0v4m0 0H9m3 0h3"
-                  />
-                </svg>
-                {imageFile ? (
-                  <span className="text-gray-800 font-medium">
-                    {imageFile.name}
-                  </span>
-                ) : (
-                  <span>
-                    <strong>Click to upload</strong> or drag & drop
-                  </span>
-                )}
-              </label>
-            </div>
+    {/* 🔸 Smaller Upload Box */}
+    <div className="border-2 border-dashed border-orange-300 rounded-xl p-3 sm:p-4 text-center hover:border-orange-500 transition bg-white/40">
+      <input
+        type="file"
+        id="fileInput"
+        accept="image/*"
+        onChange={handleUpload}
+        className="hidden"
+      />
+      <label
+        htmlFor="fileInput"
+        className="cursor-pointer flex flex-col items-center justify-center text-orange-600 text-sm sm:text-base py-3"
+      >
+        {/* 🔽 Smaller Upload Icon */}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6 sm:h-7 sm:w-7 mb-1 text-orange-500"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M7 16a4 4 0 01.88-2.51L12 7l4.12 6.49A4 4 0 0117 16m-5 0v4m0 0H9m3 0h3"
+          />
+        </svg>
 
-            {previewUrl && (
-              <div className="mt-6">
-                <h3 className="font-medium mb-2">Preview:</h3>
-                <img
-                  src={previewUrl}
-                  alt="Preview"
-                  className="w-full rounded-xl shadow"
-                />
-              </div>
-            )}
-
-            <div className="mt-6 flex justify-between items-center">
-              <button
-                onClick={handleRunSegmentation}
-                disabled={loading}
-                className="px-5 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-60"
-              >
-                {loading ? "Processing..." : "Run Segmentation"}
-              </button>
-
-              {error && <p className="text-red-600 text-sm">{error}</p>}
-            </div>
-
-            {segResultUrl && (
-              <div className="mt-6">
-                <h3 className="font-medium mb-2">Segmentation Result:</h3>
-                <img
-                  src={segResultUrl}
-                  alt="Segmentation Result"
-                  className="w-full rounded-xl shadow"
-                />
-                <a
-                  href={segResultUrl}
-                  download="segmentation.png"
-                  className="inline-block mt-2 text-indigo-600 underline text-sm"
-                >
-                  Download Result
-                </a>
-              </div>
-            )}
-          </section>
+        {imageFile ? (
+          <span className="text-gray-800 font-medium truncate max-w-[140px]">
+            {imageFile.name}
+          </span>
+        ) : (
+          <span className="text-xs sm:text-sm">
+            <strong>Click to upload</strong> or drag & drop
+          </span>
         )}
+      </label>
+    </div>
+
+    {/* Preview */}
+    {previewUrl && (
+      <div className="mt-4">
+        <h3 className="font-medium text-orange-600 mb-2 text-center">
+          Preview:
+        </h3>
+        <div className="flex justify-center">
+          <img
+            src={previewUrl}
+            alt="Preview"
+            className="w-full max-w-xs sm:max-w-sm rounded-xl shadow-md border border-orange-200"
+          />
+        </div>
+      </div>
+    )}
+
+    {/* Run Segmentation Button */}
+    <div className="mt-5 flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-3">
+      <button
+        onClick={handleRunSegmentation}
+        disabled={loading}
+        className="px-5 py-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-full shadow-md hover:from-orange-600 hover:to-pink-600 disabled:opacity-60 transition transform hover:scale-105"
+      >
+        {loading ? "Processing..." : "Run Segmentation"}
+      </button>
+      {error && <p className="text-red-600 text-sm text-center">{error}</p>}
+    </div>
+
+    {/* Segmentation Result */}
+    {segResultUrl && (
+      <div className="mt-5">
+        <h3 className="font-medium text-orange-600 mb-2 text-center">
+          Segmentation Result:
+        </h3>
+        <div className="flex justify-center">
+          <img
+            src={segResultUrl}
+            alt="Segmentation Result"
+            className="w-full max-w-xs sm:max-w-sm rounded-xl shadow-md border border-orange-200"
+          />
+        </div>
+        <div className="text-center mt-3">
+          <a
+            href={segResultUrl}
+            download="segmentation.png"
+            className="text-pink-600 underline text-sm hover:text-orange-600"
+          >
+            ⬇️ Download Result
+          </a>
+        </div>
+      </div>
+    )}
+  </section>
+)}
+
+
 
         {/* ===================== DEMO PAGE ===================== */}
         {page === "demo" && (
-          <section className="text-center text-gray-700">
-            <h2 className="text-2xl font-semibold mb-2">Demo Instructions</h2>
-            <p>
-              This demo shows how the segmentation workflow would look once the
-              backend model is connected.
-            </p>
-          </section>
-        )}
+  <section className="relative overflow-hidden p-10 sm:p-14 rounded-3xl shadow-2xl border border-orange-200 max-w-4xl mx-auto mt-10 bg-gradient-to-br from-yellow-100 via-pink-100 to-orange-100">
+    
+    {/* 🌈 Background Glow Effect */}
+    <div className="absolute inset-0 bg-gradient-to-r from-pink-300/30 via-yellow-200/30 to-orange-300/30 blur-3xl opacity-70 -z-10"></div>
+
+    <h2 className="text-4xl font-extrabold text-green-700 mb-6 text-center drop-shadow-md">
+      🌅 Explore the Demo
+    </h2>
+
+    <p className="text-gray-800 max-w-2xl mx-auto mb-10 text-center text-lg">
+      Experience how our <span className="text-orange-600 font-semibold">AI-powered Polyp Segmentation</span> 
+      system processes colonoscopy images and highlights potential polyps automatically.
+    </p>
+
+    {/* 🔸 Steps Section */}
+    <div className="grid sm:grid-cols-3 gap-8 text-left">
+      {/* Step 1 */}
+      <div className="bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-green-200 hover:shadow-2xl hover:scale-105 transition-all duration-300">
+        <div className="flex items-center gap-3 mb-3">
+          <span className="text-3xl text-green-600 animate-bounce">📤</span>
+          <h3 className="text-green-700 font-semibold text-lg">1. Upload</h3>
+        </div>
+        <p className="text-gray-700 text-sm">
+          Choose a colonoscopy image and upload it to start the segmentation workflow.
+        </p>
+      </div>
+
+      {/* Step 2 */}
+      <div className="bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-pink-200 hover:shadow-2xl hover:scale-105 transition-all duration-300">
+        <div className="flex items-center gap-3 mb-3">
+          <span className="text-3xl text-pink-500 animate-pulse">⚙️</span>
+          <h3 className="text-pink-600 font-semibold text-lg">2. Process</h3>
+        </div>
+        <p className="text-gray-700 text-sm">
+          The uploaded image is processed by a deep learning segmentation model in seconds.
+        </p>
+      </div>
+
+      {/* Step 3 */}
+      <div className="bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-yellow-200 hover:shadow-2xl hover:scale-105 transition-all duration-300">
+        <div className="flex items-center gap-3 mb-3">
+          <span className="text-3xl text-yellow-500 animate-pulse">✨</span>
+          <h3 className="text-yellow-600 font-semibold text-lg">3. Visualize</h3>
+        </div>
+        <p className="text-gray-700 text-sm">
+          Instantly view and download the segmented image with highlighted polyps.
+        </p>
+      </div>
+    </div>
+
+    {/* 🔘 Call-to-Action */}
+    <div className="mt-10 flex justify-center">
+      <button
+        onClick={() => setPage("upload")}
+        className="px-8 py-3 bg-green-600 text-white font-semibold rounded-full shadow-lg hover:bg-green-700 hover:shadow-xl transition-transform transform hover:scale-105"
+      >
+        🚀 Try Segmentation Now
+      </button>
+    </div>
+
+    {/* 🌤 Decorative Gradient Circles */}
+    <div className="absolute -top-10 -right-10 w-48 h-48 bg-pink-400/30 rounded-full blur-3xl"></div>
+    <div className="absolute -bottom-10 -left-10 w-56 h-56 bg-yellow-300/30 rounded-full blur-3xl"></div>
+  </section>
+)}
+
 
         {/* ===================== ABOUT PAGE ===================== */}
         {page === "about" && (
-          <section className="bg-white p-8 rounded-2xl shadow-md max-w-2xl mx-auto">
-            <h2 className="text-2xl font-semibold mb-4">About this Project</h2>
-            <p className="text-gray-700 mb-4">
-              This web app provides a minimal and elegant frontend for colon
-              polyp segmentation research. You can connect it with your model
-              inference API or use it as a standalone UI shell.
+          <section className="bg-white/70 p-8 rounded-2xl shadow-xl border border-orange-200 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold text-orange-600 mb-4">
+              About this Project
+            </h2>
+            <p className="text-gray-700 mb-4 leading-relaxed">
+              This web application provides a clean, elegant, and sunrise-themed
+              interface for colon polyp segmentation research. Designed for
+              researchers and clinicians, it can be integrated with AI inference
+              APIs or used as a demonstration tool.
             </p>
           </section>
         )}
       </main>
 
-      <footer className="bg-white border-t py-6 text-center text-sm text-gray-600">
-        © {new Date().getFullYear()} Polyp Segmentation — built for research
-        demos.
+      {/* ===================== 🌇 FOOTER ===================== */}
+      <footer className="bg-gradient-to-r from-pink-500 to-orange-400 text-white py-6 mt-16">
+        <div className="container mx-auto text-center">
+          <p className="font-medium text-sm">
+            © {new Date().getFullYear()} Sunrise Segmentation — Built for
+            Medical AI Research 🌤️
+          </p>
+          <p className="text-xs text-yellow-100 mt-2">
+            Designed with ❤️ using React & TailwindCSS
+          </p>
+        </div>
       </footer>
     </div>
   );
 }
-
