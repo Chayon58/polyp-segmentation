@@ -73,11 +73,11 @@ export default function App() {
       className={`px-5 py-2 rounded-full font-semibold text-white transition-all duration-300 shadow-md border-none
         ${
           page === p
-            ? "bg-orange-600 scale-105"
-            : "bg-orange-500 hover:bg-orange-600 hover:shadow-lg hover:scale-105"
+            ? "bg-green-600 scale-105"
+            : "bg-orange-500 hover:bg-green-600 hover:shadow-lg hover:scale-105"
         }`}
       style={{
-        backgroundColor: page === p ? "#EA580C" : "#F97316", // Force orange colors
+        backgroundColor: page === p ? "#B6F500" : "#FC4100", // Force orange colors
         margin: "6px", // ✅ fallback spacing between buttons
       }}
     >
