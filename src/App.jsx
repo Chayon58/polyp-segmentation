@@ -312,7 +312,7 @@ export default function App() {
         <div className="container mx-auto text-center">
           <p className="font-medium text-sm">
             © {new Date().getFullYear()} Polyp Segmentation — Built for
-            Medical AI Research 🌤️
+            Medical Research 🌤️
           </p>
           <p className="text-xs text-yellow-100 mt-2">
             Designed using React & TailwindCSS
