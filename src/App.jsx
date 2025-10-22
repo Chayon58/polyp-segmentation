@@ -311,12 +311,21 @@ export default function App() {
       <footer className="bg-gradient-to-r from-pink-500 to-orange-400 text-white py-6 mt-16">
         <div className="container mx-auto text-center">
           <p className="font-medium text-sm">
-            © {new Date().getFullYear()} Sunrise Segmentation — Built for
+            © {new Date().getFullYear()} Polyp Segmentation — Built for
             Medical AI Research 🌤️
           </p>
           <p className="text-xs text-yellow-100 mt-2">
-            Designed with ❤️ using React & TailwindCSS
+            Designed using React & TailwindCSS
           </p>
+          <div className="flex justify-center items-center gap-2 mb-3">
+      <a
+        href="mailto:chayonbiswas872@gmail.com"
+        className="text-sm text-white hover:text-yellow-200 underline underline-offset-4 transition"
+      >
+        chayonbiswas872@gmail.com
+      </a>
+    </div>
+
         </div>
       </footer>
     </div>
