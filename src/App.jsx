@@ -70,7 +70,7 @@ export default function App() {
     <button
       key={p}
       onClick={() => setPage(p)}
-      className={`px-5 py-2 rounded-full font-semibold text-white transition-all duration-300 shadow-md border-none
+      className={`px-5 py-2 rounded-full font-bold text-white transition-all duration-300 shadow-md border-none
         ${
           page === p
             ? "bg-green-600 scale-105"
@@ -78,7 +78,12 @@ export default function App() {
         }`}
       style={{
         backgroundColor: page === p ? "#B6F500" : "#FC4100", // Force orange colors
-        margin: "6px", // ✅ fallback spacing between buttons
+        margin: "8px", // ✅ fallback spacing between buttons,
+        padding: "12px 20px", // ✅ consistent padding
+        color: "white", // ✅ Force text color
+        fontWeight: "700", // ✅ Force bold text
+        fontFamily: "Poppins, Arial, sans-serif", // ✅ Modern clean font
+        letterSpacing: "0.5px"
       }}
     >
       {p.charAt(0).toUpperCase() + p.slice(1)}
