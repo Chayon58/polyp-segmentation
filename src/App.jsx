@@ -56,7 +56,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-rose-100 via-orange-100 to-yellow-50 text-gray-800 font-[Poppins]">
-      {/* ===================== 🌅 NAVBAR ===================== */}
+      {/* ===================== NAVBAR ===================== */}
       <header className="bg-gradient-to-r from-orange-400 to-pink-500 text-white shadow-lg sticky top-0 z-50">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <h1 className="text-2xl font-semibold tracking-wide drop-shadow-lg">
@@ -96,7 +96,7 @@ export default function App() {
         </div>
       </header>
 
-      {/* ===================== 🌄 MAIN ===================== */}
+      {/* =====================  MAIN ===================== */}
       <main className="container mx-auto px-6 py-12">
         {/* ===================== HOME PAGE ===================== */}
         {page === "home" && (
@@ -307,7 +307,7 @@ export default function App() {
         )}
       </main>
 
-      {/* ===================== 🌇 FOOTER ===================== */}
+      {/* =====================  FOOTER ===================== */}
       <footer className="bg-gradient-to-r from-pink-500 to-orange-400 text-white py-6 mt-16">
         <div className="container mx-auto text-center">
           <p className="font-medium text-sm">
